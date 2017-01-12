@@ -38,8 +38,8 @@ class Package extends BasePackage
                 $span = Profiler::createSpan('fluid-viewhelper');
 
                 // 0 = $section, 1 = $partial
-                $toRender = isset($context['args'][1]) ? 'partial:' . $context['args'][1] : 'section:' . $context['args'][0];
-                $span->annotate(['title' => 'Render(' . $toRender . ')']);
+                $source = isset($context['args'][1]) ? 'partial:' . $context['args'][1] : 'section:' . $context['args'][0];
+                $span->annotate(['title' => 'f:render', 'source' => $source]);
 
                 return $span->getId();
             }
